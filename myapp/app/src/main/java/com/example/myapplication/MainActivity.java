@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     EditText name, pass;
@@ -18,8 +19,15 @@ public class MainActivity extends AppCompatActivity {
         pass=(EditText)findViewById(R.id.editText4);
         btnAdd=(Button)findViewById(R.id.button);
 
-        btnAdd.setOnLongClickListener(new view.onClickListeners(){
-
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("Name: "+name.getText().toString()+"\n");
+                sb.append("Password :"+pass.getText().toString());
+                Toast toast = Toast.makeText(getApplicationContext(), sb.toString(), Toast.LENGTH_LONG);
+                toast.show();
+            }
         });
 
     }
