@@ -1,6 +1,5 @@
-package com.sofiqul54.sqlightexm;
+package com.coderbd.sqlietdbex;
 
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,9 +10,9 @@ import android.widget.Toast;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-EditText id, name, qty;
-MyDbAdapter helper;
-ListView listView;
+    EditText id, name, qty;
+    MyDbAdapter helper;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +21,9 @@ ListView listView;
         id = (EditText) findViewById(R.id.productID);
         name = (EditText) findViewById(R.id.productName);
         qty = (EditText) findViewById(R.id.productQuantity);
-        helper= new MyDbAdapter(this);
+        helper = new MyDbAdapter(this);
+        getProductlist();
+
     }
 
     public void saveProduct(View view) {
@@ -36,26 +37,29 @@ ListView listView;
         }
     }
 
-    public  void getProductByProductId(View view){
+    public void getProductByProductId(View view) {
         int pid = Integer.parseInt(id.getText().toString().trim());
         Product p = helper.findProductById(pid);
-        if (p != null){
-            name.setText(p.getProductName());
+        if (p != null) {
+            name.setText(p.getProductname());
             qty.setText(String.valueOf(p.getQuantity()));
-        }else {
-            Toast.makeText(this, "No Data Exixts", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "No Data Exists", Toast.LENGTH_SHORT).show();
         }
+
     }
 
-    public void deleteProductByProductId(View view){
+    public void deleteProductByProductId(View view) {
         int pid = Integer.parseInt(id.getText().toString().trim());
         helper.deleteProduct(pid);
-        Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+        getProductlist();
+        Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
     }
 
-    public void getProductlist(){
+    public void getProductlist() {
+        ///////////////Display List
         listView = (ListView) findViewById(R.id.listviews);
-        List<Product> list = helper.getlist();
+        List<Product> list = helper.getList();
         ProductAdapter adapter = new ProductAdapter(this, list);
         listView.setAdapter(adapter);
     }
