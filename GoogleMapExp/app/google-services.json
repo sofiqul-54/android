@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "398232727256",
+    "firebase_url": "https://mapexp-3ed83.firebaseio.com",
+    "project_id": "mapexp-3ed83",
+    "storage_bucket": "mapexp-3ed83.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398232727256:android:2943b87393694194",
+        "android_client_info": {
+          "package_name": "com.sofiqul54.googlemapexp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398232727256-cpf0mb9j6dbakivi4ui2dk80jbdf2hhb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0guFUNB970dfM5t0avU7RTihSAeUlWEQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "398232727256-cpf0mb9j6dbakivi4ui2dk80jbdf2hhb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
